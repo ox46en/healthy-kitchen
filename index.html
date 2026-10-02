@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <meta name="theme-color" content="#111827" />
+  <meta name="description"
+        content="Healthy Kitchen grocery and food inventory tracker" />
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <title>Healthy Kitchen</title>
+</head>
+
+<body>
+
+<header class="app-header">
+  <div>
+    <h1>Healthy Kitchen</h1>
+    <p id="summary">0 items</p>
+  </div>
+
+  <button id="installBtn" class="install-btn hidden">
+    Install
+  </button>
+</header>
+
+
+<main>
+
+  <!-- Progress -->
+  <section class="progress-card">
+    <div class="progress-header">
+      <span>Shopping progress</span>
+      <strong id="progressText">0%</strong>
+    </div>
+
+    <div class="progress-bar">
+      <div id="progressFill"></div>
+    </div>
+
+    <div class="stats">
+      <span id="neededCount">0 Needed</span>
+      <span id="boughtCount">0 Bought</span>
+      <span id="lowCount">0 Low</span>
+      <span id="outCount">0 Out</span>
+    </div>
+  </section>
+
+
+  <!-- Search -->
+  <section class="search-section">
+    <input
+      type="search"
+      id="searchInput"
+      placeholder="Search food..."
+      autocomplete="off"
+    />
+  </section>
+
+
+  <!-- Status filters -->
+  <div class="filter-row">
+    <button class="filter-btn active" data-status="all">
+      All
+    </button>
+
+    <button class="filter-btn" data-status="needed">
+      Needed
+    </button>
+
+    <button class="filter-btn" data-status="bought">
+      Bought
+    </button>
+
+    <button class="filter-btn" data-status="low">
+      Low Stock
+    </button>
+
+    <button class="filter-btn" data-status="out">
+      Out
+    </button>
+  </div>
+
+
+  <!-- Categories -->
+  <div id="categoryTabs" class="category-tabs"></div>
+
+
+  <!-- Items -->
+  <section id="itemsContainer" class="items-container"></section>
+
+
+  <!-- Empty state -->
+  <section id="emptyState" class="empty-state hidden">
+    <div class="empty-icon">🛒</div>
+    <h2>No items found</h2>
+    <p>Try another search or add a custom item.</p>
+  </section>
+
+</main>
+
+
+<!-- Bottom navigation -->
+<nav class="bottom-nav">
+
+  <button class="nav-btn active" data-view="list">
+    <span>🛒</span>
+    <small>List</small>
+  </button>
+
+  <button class="nav-btn" data-view="shopping">
+    <span>✓</span>
+    <small>Shopping</small>
+  </button>
+
+  <button class="nav-btn" data-view="categories">
+    <span>☷</span>
+    <small>Categories</small>
+  </button>
+
+  <button class="nav-btn" data-view="settings">
+    <span>⚙</span>
+    <small>Settings</small>
+  </button>
+
+</nav>
+
+
+<!-- Add/Edit modal -->
+<div id="modal" class="modal hidden">
+
+  <div class="modal-content">
+
+    <div class="modal-header">
+      <h2 id="modalTitle">Add Item</h2>
+
+      <button id="closeModal" class="close-btn">
+        ×
+      </button>
+    </div>
+
+    <label>
+      Item name
+      <input id="itemName" type="text" />
+    </label>
+
+    <label>
+      Category
+      <select id="itemCategory"></select>
+    </label>
+
+    <label>
+      Quantity
+      <input
+        id="itemQuantity"
+        type="text"
+        placeholder="Example: 500 g"
+      />
+    </label>
+
+    <label>
+      Notes
+      <textarea
+        id="itemNotes"
+        placeholder="Optional"
+      ></textarea>
+    </label>
+
+    <div class="modal-actions">
+
+      <button id="saveItem" class="primary-btn">
+        Save Item
+      </button>
+
+      <button id="deleteItem" class="danger-btn hidden">
+        Delete
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- Floating add button -->
+<button id="addBtn" class="add-btn">
+  +
+</button>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>

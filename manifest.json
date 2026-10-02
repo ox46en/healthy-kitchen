@@ -1,0 +1,12 @@
+{
+  "name": "Healthy Kitchen",
+  "short_name": "Kitchen",
+  "description": "Healthy food and grocery shopping tracker",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f5f7fa",
+  "theme_color": "#111827",
+  "icons": []
+}
